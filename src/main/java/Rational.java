@@ -76,5 +76,6 @@ public class Rational {
         var output = denominator == 1 ? String.valueOf(numerator) : String.format("%d/%d", numerator, denominator);
         return output;
     }
+
 }
 
