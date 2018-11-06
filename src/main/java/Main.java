@@ -39,7 +39,8 @@ public class Main {
 
         // Suma de los numeradores
         System.out.println("Suma de los numeradores");
-        System.out.println(rationals.stream().reduce(Rational::plus).get().getNumerator());
+        System.out.println(rationals.stream().mapToDouble(Rational::getNumerator).sum());
+
         //Numero de elementos
         System.out.println("Numero de elementos");
         System.out.println(rationals.stream().count());
