@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
-    public static  void main(String[] args){
+    public static  void main(String[] args) {
         var rationals = List.of(
                 new Rational(1, 4),
                 new Rational(1, 8),
@@ -11,20 +11,21 @@ public class Main {
                 new Rational(7, 8));
 
 
-        var unMedio = new Rational(1,2);
-        for(Rational r : rationals){
-            if(r.isLessThan(unMedio)){
+        var unMedio = new Rational(1, 2);
+        for (Rational r : rationals) {
+            if (r.isLessThan(unMedio)) {
                 System.out.println(r);
-            };
+            }
+            ;
         }
 
         rationals.stream()
                 .filter(rational -> rational.isLessThan(unMedio))
-                .forEach(rational -> System.out.print("\n"+rational));
+                .forEach(rational -> System.out.print("\n" + rational));
 
         System.out.println("\n");
-        var r = new Rational(0,1);
-        var uno = new Rational(1,1);
+        var r = new Rational(0, 1);
+        var uno = new Rational(1, 1);
 
         // 2.- Sumar todos los racional
         System.out.println("Sumar todos los racional");
@@ -45,15 +46,17 @@ public class Main {
         System.out.println("Numero de elementos");
         System.out.println(rationals.stream().count());
         //La Numerador menor
-        System.out.println("Numerador Menor");
-        System.out.println(rationals.stream().min(Comparator.comparing(Rational::toString)).get().getNumerator());
+        System.out.println("Numerador Meno  r");
+        // System.out.println(rationals.stream().min(Comparator.comparing(Rational::toString)).get().getNumerator());
+        System.out.println(rationals.stream().mapToInt(Rational::getNumerator).min().getAsInt());
+
         //La Numerador mayor
         System.out.println("Numerador mayor");
-       
- System.out.println(rationals.stream().max(Comparator.comparing(Rational::toString)).get().getNumerator());
+        //System.out.println(rationals.stream().max(Comparator.comparing(Rational::toString)).get().getNumerator());
+        System.out.println(rationals.stream().mapToInt(Rational::getNumerator).max().getAsInt());
         // El promedio
         System.out.println("Promedio");
-        System.out.println(rationals.stream().mapToDouble(Rational::getNumerator).average().getAsDouble());
+        System.out.println(rationals.stream().mapToInt(Rational::getNumerator).average().getAsDouble());
 
 
     }
